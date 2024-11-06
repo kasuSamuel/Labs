@@ -1,0 +1,189 @@
+/* General Reset and Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7fc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #333;
+    width: 100%;
+  }
+  .btn{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+  }
+  
+  /* Container for the entire to-do app */
+  .container {
+    background: linear-gradient(135deg, #6c5ce7, #00cec9);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 500px;
+    padding: 30px;
+    text-align: center;
+    color: white;
+    transition: background 0.3s ease;
+  }
+  
+  /* Header */
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #ffffff;
+  }
+  
+  /* Input fields and buttons styling */
+  input, button {
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 8px;
+    font-size: 1rem;
+  }
+  
+  input {
+    width: 90%;
+    max-width: 350px;
+    border: 1px solid #ddd;
+    outline: none;
+    transition: all 0.2s ease;
+  }
+  
+  input:focus {
+    border-color: #00cec9;
+  }
+  
+  button {
+    width: 90%;
+    background: #00cec9;
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    transition: background 0.3s ease;
+  }
+  button {
+    width: 90%;
+    background: #00cec9;
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    transition: background 0.3s ease;
+  }
+  
+  button:hover {
+    background: #0984e3;
+  }
+  
+  /* Sort buttons */
+  button.sort-btn {
+    background: #6c5ce7;
+    margin-top: 5px;
+    font-weight: normal;
+    transition: background 0.3s ease;
+  }
+  
+  button.sort-btn:hover {
+    background: #00cec9;
+  }
+  
+  /* Todo List Container */
+  ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+    max-height: 400px;
+    overflow-y: auto;
+  }
+  
+  /* Individual Todo Item */
+  li {
+    background-color: white;
+    color: #333;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+  }
+  
+  li:hover {
+    background-color: #f0f4f7;
+  }
+  
+  .completed {
+    background-color: #d4edda;
+    color: #28a745;
+    text-decoration: line-through;
+    opacity: 0.7;
+  }
+  
+  button.edit-btn, button.delete-btn {
+    background: #ff9f43;
+    border: none;
+    padding: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background 0.3s ease;
+  }
+  
+  button.edit-btn:hover {
+    background: #f39c12;
+  }
+  
+  button.delete-btn {
+    background: #e74c3c;
+  }
+  
+  button.delete-btn:hover {
+    background: #c0392b;
+  }
+  
+  /* Animations for adding and removing todo items */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  li {
+    animation: fadeIn 0.5s ease-out;
+  }
+  
+  /* Footer Section (Optional) */
+  footer {
+    margin-top: 30px;
+    font-size: 0.9rem;
+    color: #ffffff;
+    opacity: 0.7;
+  }
+  
+  footer a {
+    color: #ffffff;
+    text-decoration: none;
+  }
+  
+  footer a:hover {
+    text-decoration: underline;
+  }
+  
