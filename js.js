@@ -21,3 +21,10 @@ const capitalize = (str) => {
     return str.toLowerCase() === reverse(str.toLowerCase());
   };
   console.log(isPalindrome('who'));
+
+//   d. wordCount(str)
+  const wordCount = (str) => {
+    if (typeof str !== 'string') return 0; 
+    return str.trim().split(/\s+/).length;
+  };
+  console.log(wordCount('Hello World plop'));
