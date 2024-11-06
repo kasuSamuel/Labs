@@ -15,4 +15,9 @@ const capitalize = (str) => {
   };
     console.log(reverse('samuel'));
 
-    // c. isPalindrome(str)
+// c. isPalindrome(str)
+  const isPalindrome = (str) => {
+    if (typeof str !== 'string') return false; 
+    return str.toLowerCase() === reverse(str.toLowerCase());
+  };
+  console.log(isPalindrome('who'));
