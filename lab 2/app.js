@@ -15,17 +15,29 @@ function renderList() {
 
   todoList.forEach(task => {
     const li = document.createElement('li');
+    const br = document.createElement('br');
     li.classList.add('task');
     li.dataset.id = task.id;
   
     // Using template literals for building task HTML structure
     const taskHTML = `
-      <h4 class="task-title ${task.completed ? 'completed' : ''}">Tittle:${task.title}</h4><br>
+      <h4 class="task-title ${task.completed ? 'completed' : ''}"> Tittle:${task.title}</h4><br>
       <p class="task-description">Description:${task.description ? ` ${task.description}` : ''}</p><br>
       <h4 class="task-due-date"> Time: ${new Date(task.dueDate).toLocaleString()}</h4>
-      <div class="kkk-flex">      <button class="complete-btn">${task.completed ? 'Undo' : 'Complete'}</button>
-      <button class="edit-btn">Edit</button>
-      <button class="delete-btn">Delete</button></div>
+<div class="kkk-flex">
+  <button class="complete-btn" style="background-color: #4CAF50; color: white; border: none; padding: 10px 20px; border-radius: 5px; font-size: 16px; cursor: pointer; transition: background-color 0.3s;">
+    <i class="fa-solid fa-check" style="font-size: 18px; margin-right: 8px;"></i> 
+  </button>
+  
+  <button class="edit-btn" style="background-color: #007BFF; color: white; border: none; padding: 10px 20px; border-radius: 5px; font-size: 16px; cursor: pointer; transition: background-color 0.3s;">
+    <i class="fa-solid fa-pen" style="font-size: 18px; margin-right: 8px;"></i> 
+  </button>
+  
+  <button class="delete-btn" style="background-color: #FF5733; color: white; border: none; padding: 10px 20px; border-radius: 5px; font-size: 16px; cursor: pointer; transition: background-color 0.3s;">
+    <i class="fa-solid fa-trash" style="font-size: 18px; margin-right: 8px;"></i> 
+  </button>
+</div>
+
 
     `;
   
@@ -39,6 +51,8 @@ function renderList() {
   
     // Append the li to the todoListContainer
     todoListContainer.appendChild(li);
+    todoListContainer.appendChild(br);
+
   });
   
 }
