@@ -71,3 +71,36 @@ function average(arr) {
 console.log(average(numbers));
 
 
+
+//   3. Object Transformations
+
+const personUtils = {
+  fullName: function(person) {
+    return `${person.firstName} ${person.lastName}`;
+  },
+
+  isAdult: function(person) {
+    return person.age >= 18;
+  },
+
+  filterByAge: function(people, minAge) {
+    return people.filter(person => person.age >= minAge);
+  }
+};
+
+const people = [
+  { firstName: "Alice", lastName: "Johnson", age: 22 },
+  { firstName: "Bob", lastName: "Smith", age: 27 },
+  { firstName: "Charlie", lastName: "Brown", age: 30 },
+];
+
+// a. Get full name of the first person
+console.log(personUtils.fullName(people[0])); 
+
+// b. Check if the  person is an adult
+console.log(personUtils.isAdult(people[1]));  
+
+// c. Filter people by age greater than or equal to 18
+console.log(personUtils.filterByAge(people, 18));  
+
+
