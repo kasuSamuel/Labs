@@ -52,7 +52,7 @@ function renderList() {
     // Append the li to the todoListContainer
     todoListContainer.appendChild(li);
     todoListContainer.appendChild(br);
-
+  
   });
   
 }
