@@ -7,3 +7,11 @@ const capitalize = (str) => {
 };
 console.log(capitalize('amalitech ghana'));
 
+//   b. reverse(str)
+
+const reverse = (str) => {
+  if (typeof str !== 'string') return ''; 
+  return str.split('').reverse().join('');
+};
+  console.log(reverse('amalitech ghana'));
+
