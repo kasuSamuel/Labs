@@ -23,4 +23,11 @@ const reverse = (str) => {
   }
   console.log(isPalindrome('racecar'));  
 
-  
+  //   d. wordCount(str)
+
+  const wordCount = (str) => {
+    if (typeof str !== 'string') return 0; 
+    return str.trim().split(/\s+/).length;
+  };
+  console.log(wordCount('amalitech ganhan'));
+
