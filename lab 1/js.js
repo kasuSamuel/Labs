@@ -15,3 +15,12 @@ const reverse = (str) => {
 };
   console.log(reverse('amalitech ghana'));
 
+  // c. isPalindrome(str)
+
+  function isPalindrome(word) {
+    const cleanedWord = word.toLowerCase().replace(/[^a-z0-9]/g, '');
+    return cleanedWord === cleanedWord.split('').reverse().join('');
+  }
+  console.log(isPalindrome('racecar'));  
+
+  
