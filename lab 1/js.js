@@ -31,3 +31,43 @@ const reverse = (str) => {
   };
   console.log(wordCount('amalitech ganhan'));
 
+
+//   2. Array Transformations
+
+const numbers = [1, 2, 3, 4, 5];
+
+// a. Double every number in an array
+
+function double(arr) {
+  return arr.map(num => num * 2);
+}
+
+console.log(double(numbers));
+
+
+
+// b. Filter out even numbers from an array
+
+function filterEven(arr) {
+  return arr.filter(num => num % 2 !== 0);
+}
+
+console.log(filterEven(numbers));
+
+
+// c. Calculate the sum of all numbers in an array
+function sum(arr) {
+  return arr.reduce((acc, num) => acc + num, 0);
+}
+
+console.log(sum(numbers));
+
+
+// d. Calculate the average of all numbers in an array
+function average(arr) {
+  return arr.reduce((acc, num) => acc + num, 0) / arr.length;
+}
+
+console.log(average(numbers));
+
+
