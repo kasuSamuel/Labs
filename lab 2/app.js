@@ -20,12 +20,13 @@ function renderList() {
   
     // Using template literals for building task HTML structure
     const taskHTML = `
-      <span class="task-title ${task.completed ? 'completed' : ''}">${task.title}</span>
-      <span class="task-description">${task.description ? ` - ${task.description}` : ''}</span>
-      <span class="task-due-date">Due: ${new Date(task.dueDate).toLocaleString()}</span>
-      <button class="complete-btn">${task.completed ? 'Undo' : 'Complete'}</button>
+      <h4 class="task-title ${task.completed ? 'completed' : ''}">Tittle:${task.title}</h4><br>
+      <p class="task-description">Description:${task.description ? ` ${task.description}` : ''}</p><br>
+      <h4 class="task-due-date"> Time: ${new Date(task.dueDate).toLocaleString()}</h4>
+      <div class="kkk-flex">      <button class="complete-btn">${task.completed ? 'Undo' : 'Complete'}</button>
       <button class="edit-btn">Edit</button>
-      <button class="delete-btn">Delete</button>
+      <button class="delete-btn">Delete</button></div>
+
     `;
   
     // Insert the task HTML into the li element

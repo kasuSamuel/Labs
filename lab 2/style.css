@@ -34,6 +34,18 @@
     color: white;
     transition: background 0.3s ease;
   }
+
+  .containery {
+    background: linear-gradient(135deg, #6c5ce7, #00cec9);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 500px;
+    padding: 30px;
+    text-align: center;
+    color: white;
+    transition: background 0.3s ease;
+  }
   
   /* Header */
   h1 {
@@ -187,3 +199,6 @@
     text-decoration: underline;
   }
   
+  .kkk-flex{
+    display: flex;
+  }
