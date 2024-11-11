@@ -2,7 +2,7 @@
 // a. capitalize(str)
 
 const capitalize = (str) => {
-  if (typeof str !== 'string') return ''; 
+  if (typeof str !== 'string') return 'Not a string'; 
   return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
 };
 console.log(capitalize('amalitech ghana'));
@@ -10,7 +10,7 @@ console.log(capitalize('amalitech ghana'));
 //   b. reverse(str)
 
 const reverse = (str) => {
-  if (typeof str !== 'string') return ''; 
+  if (typeof str !== 'string') return 'Not a string'; 
   return str.split('').reverse().join('');
 };
   console.log(reverse('amalitech ghana'));
@@ -104,3 +104,36 @@ console.log(personUtils.isAdult(people[1]));
 console.log(personUtils.filterByAge(people, 18));  
 
 
+// question 4
+
+// Reverse and Capitalize a String
+
+function compose(...fns) {
+  return fns.reduce((f, g) => (...args) => f(g(...args)));
+}
+
+function reverseString(str) {
+  return str.split('').reverse().join('');
+}
+
+function capitalizeString(str) {
+  return str.toUpperCase();
+}
+
+const reverseAndCapitalize = compose(capitalizeString, reverseString);
+
+console.log(reverseAndCapitalize('hello world')); 
+
+//  Double Even Numbers in an Array
+
+function doubleEven(num) {
+  return num % 2 === 0 ? num * 2 : num;
+}
+
+function mapArray(fn, arr) {
+  return arr.map(fn);
+}
+
+const doubleEvenNumbers = compose(mapArray.bind(null, doubleEven));
+
+console.log(doubleEvenNumbers([1, 2, 3, 4, 5]));
