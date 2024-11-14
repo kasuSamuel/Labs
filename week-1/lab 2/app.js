@@ -3,7 +3,7 @@ let todoList = [];
 
 // Helper function to generate unique IDs for each task
 function generateId() {
-  return "_" + Math.random().toString(36).substr(2, 9);
+  return "_" + Math.random().toString(36).slice(2, 9);
 }
 
 // Function to render the to-do list
