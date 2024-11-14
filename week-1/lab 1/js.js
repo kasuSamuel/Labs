@@ -107,7 +107,7 @@ console.log(personUtils.filterByAge(people, 18));
 // question 4
 
 // Reverse and Capitalize a String
-
+z
 function compose(...fns) {
   return fns.reduce((f, g) => (...args) => f(g(...args)));
 }
