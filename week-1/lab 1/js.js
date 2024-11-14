@@ -124,7 +124,7 @@ const reverseAndCapitalize = compose(capitalizeString, reverseString);
 
 console.log(reverseAndCapitalize('hello world')); 
 
-//  Double Even Numbers in an Array.
+//  Double Even Numbers in an Array
 
 function doubleEven(num) {
   return num % 2 === 0 ? num * 2 : num;
