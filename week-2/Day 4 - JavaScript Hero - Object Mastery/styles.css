@@ -33,7 +33,9 @@ font-weight: 400;
 line-height: normal;
 }
 
-.Quite {
+.Quit {
+        cursor: pointer;
+
     display: flex;
 width: 152px;
 padding: 10px;
@@ -103,4 +105,11 @@ font-size: 30px;
 font-style: normal;
 font-weight: 400;
 line-height: normal;
+    cursor: pointer;
+}
+
+button:hover {
+    transform: scale(0.95); 
+        transition: background 0.3s ease;
+
 }
