@@ -3,27 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Superheroes And Supervillains</title>
-    <!-- Link to Font Awesome CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
+
+
+
+<title>Superheroes And Villains</title>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <div class="container">
-        <header>
-            <h1>Superheroes and Supervillains</h1>
-        </header>
+<div class="container">
+    <header>
+        <h1>Superheroes and Supervillains</h1>
+    </header>
 
-        <div class="filters">
-            <button onclick="displayHeroes()"><i class="fas fa-user-shield"></i> Show Heroes</button>
-            <button onclick="displayVillains()"><i class="fas fa-skull-crossbones"></i> Show Villains</button>
-            <button onclick="displayAll()"><i class="fas fa-users"></i> Show All Characters</button>
-        </div>
-
-        <div class="character-list" id="character-list"></div>
+    <div class="filters">
+        <button onclick="displayHeroes()">Show Heroes</button>
+        <button onclick="displayVillains()">Show Villains</button>
+        <button onclick="displayAll()">Show All Characters</button>
     </div>
 
-    <script src=".js"></script>
+    <div class="character-list" id="character-list"></div>
+    
+</div>
+
+<script src="app.js"></script>
 </body>
 </html>
