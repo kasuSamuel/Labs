@@ -7,25 +7,39 @@
 
 
 <title>Superheroes And Villains</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<header>
+    <p class="title">Automated Fight Simulation</p>
+    <button class="Quite">Quit</button>
+</header>
 
 <div class="container">
-    <header>
-        <h1>Superheroes and Supervillains</h1>
-    </header>
+    <div>
+<img src="sub-removebg-preview 1.png" alt="">
+<select id="mySelect" name="fruit">
+  <option value="apple">Apple</option>
+  <option value="orange">Orange</option>
+  <option value="banana">Banana</option>
+  <option value="grapes">Grapes</option>
+</select>
 
-    <div class="filters">
-        <button onclick="displayHeroes()">Show Heroes</button>
-        <button onclick="displayVillains()">Show Villains</button>
-        <button onclick="displayAll()">Show All Characters</button>
     </div>
+    <p class="vs">VS</p>
+    <div>
+        <img src="sub-removebg-preview 1.png" alt="">  
+        <select id="mySelect" name="fruit">
+            <option value="apple">Apple</option>
+            <option value="orange">Orange</option>
+            <option value="banana">Banana</option>
+            <option value="grapes">Grapes</option>
+          </select> </div></div>
 
-    <div class="character-list" id="character-list"></div>
-    
-</div>
-
+          <button class="start">Start fight</button>
 <script src="app.js"></script>
 </body>
 </html>
