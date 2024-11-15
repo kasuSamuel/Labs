@@ -38,9 +38,9 @@ class Clock {
   
     // Display time based on format (toggle between 12-hour and 24-hour)
     if (is24HourFormat) {
-      clockElement.innerHTML = clock.getFormattedTime(); // 24-hour format
+      clockElement.innerHTML = clock.getFormattedTime(); 
     } else {
-      clockElement.innerHTML = clock.get12HourTime(); // 12-hour format
+      clockElement.innerHTML = clock.get12HourTime(); 
     }
   
     // Update the clock every second (1000 milliseconds)
