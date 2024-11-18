@@ -4,43 +4,44 @@ class Clock {
     this.hours = hours;
     this.minutes = minutes;
     this.seconds = seconds;
+  }
 
     // Method to return the time in HH:MM:SS format (24-hour)
-    this.getFormattedTime = function () {
-      let formattedHours = this.hours < 10 ? '0' + this.hours : this.hours;
-      let formattedMinutes = this.minutes < 10 ? '0' + this.minutes : this.minutes;
-      let formattedSeconds = this.seconds < 10 ? '0' + this.seconds : this.seconds;
-      return `${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
-    };
+  getFormattedTime () {
+    const formattedHours = this.hours < 10 ? '0' + this.hours : this.hours;
+    const formattedMinutes = this.minutes < 10 ? '0' + this.minutes : this.minutes;
+    const formattedSeconds = this.seconds < 10 ? '0' + this.seconds : this.seconds;
+    return `${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
+  };
 
-    // Method to return the time in 12-hour format with AM/PM
-    this.get12HourTime = function () {
-      let hour12 = this.hours % 12;
-      hour12 = hour12 ? hour12 : 12; // If hour is 0, use 12
-      let ampm = this.hours >= 12 ? 'PM' : 'AM';
-      let formattedMinutes = this.minutes < 10 ? '0' + this.minutes : this.minutes;
-      let formattedSeconds = this.seconds < 10 ? '0' + this.seconds : this.seconds;
-      return `${hour12}:${formattedMinutes}:${formattedSeconds} ${ampm}`;
-    };
-  }
+      // Method to return the time in 12-hour format with AM/PM
+  get12HourTime () {
+    const hour12 = this.hours % 12; hour12 = hour12 ? hour12 : 12; // If hour is 0, use 12
+    const ampm = this.hours >= 12 ? 'PM' : 'AM';
+    const formattedMinutes = this.minutes < 10 ? '0' + this.minutes : this.minutes;
+    const formattedSeconds = this.seconds < 10 ? '0' + this.seconds : this.seconds;
+    return `${hour12}:${formattedMinutes}:${formattedSeconds} ${ampm}`;
+  };
 }
+
+
   
   // Flag to track format state (24-hour format is default)
-  let is24HourFormat = true;
+  const is24HourFormat = true;
   
   // Function to update the clock every second
   function updateClock() {
-    let currentTime = new Date();
-    let clock = new Clock(currentTime.getHours(), currentTime.getMinutes(), currentTime.getSeconds());
+    const currentTime = new Date();
+    const clock = new Clock(currentTime.getHours(), currentTime.getMinutes(), currentTime.getSeconds());
   
     // Get the div element to display the time
-    let clockElement = document.getElementById("clock");
+    const clockElement = document.getElementById("clock");
   
     // Display time based on format (toggle between 12-hour and 24-hour)
     if (is24HourFormat) {
-      clockElement.innerHTML = clock.getFormattedTime(); 
+      clockElement.innerHTML = clock.getFormattedTime(); // 24-hour format
     } else {
-      clockElement.innerHTML = clock.get12HourTime(); 
+      clockElement.innerHTML = clock.get12HourTime(); // 12-hour format
     }
   
     // Update the clock every second (1000 milliseconds)
@@ -53,7 +54,7 @@ class Clock {
     is24HourFormat = !is24HourFormat;
   
     // Update the button text based on the current format
-    let toggleButton = document.getElementById("toggleFormat");
+    const toggleButton = document.getElementById("toggleFormat");
     if (is24HourFormat) {
       toggleButton.textContent = "Switch to 12-hour format";
     } else {
@@ -70,7 +71,6 @@ function changeClockColor() {
     const randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
     clockElement.style.color = randomColor;
   }
-  
   // Add event listener to change color button
   document.getElementById("changeColor").addEventListener("click", changeClockColor);
   

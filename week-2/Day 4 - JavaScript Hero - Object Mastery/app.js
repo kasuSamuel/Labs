@@ -1,75 +1,148 @@
-// Superheroes and Supervillains data
-const characters = [
-    { name: "Superman", identity: "Clark Kent", powers: ["super strength", "flight", "x-ray vision"], isHero: true },
-    { name: "Batman", identity: "Bruce Wayne", powers: ["intelligence", "martial arts"], isHero: true },
-    { name: "Joker", identity: "Unknown", powers: ["insanity", "gadgets"], isHero: false },
-    { name: "Wonder Woman", identity: "Diana Prince", powers: ["super strength", "combat skills", "lasso of truth"], isHero: true },
-    { name: "Lex Luthor", identity: "Lex Luthor", powers: ["intelligence", "wealth", "power armor"], isHero: false },
-    { name: "Aquaman", identity: "Arthur Curry", powers: ["super strength", "aquatic abilities", "trident mastery"], isHero: true },
-];
+const superheroesList = [
+    {
+      name: "Superman",
+      identity: "Clark Kent",
+      powers: ["super strength", "flight", "x-ray vision"],
+      isHero: true,
+      picture: "super-removebg-preview 1.png",
+      usePower(powerName) {
+        if (this.powers.includes(powerName)) {
+          console.log(`${this.name} uses their power of ${powerName}!`);
+        } else {
+          console.log(`${this.name} doesn't have the power of ${powerName}.`);
+        }
+      },
+      revealIdentity() {
+        console.log(`${this.name}'s secret identity is ${this.identity}.`);
+      },
+    },
+    {
+      name: "Joker",
+      identity: "Unknown",
+      powers: ["insanity", "gadgets"],
+      isHero: false,
+      picture: "joker-removebg-preview 1.png",
+      usePower: function (powerName) {
+        if (this.powers.includes(powerName)) {
+          console.log(`${this.name} uses their power of ${powerName}!`);
+        } else {
+          console.log(`${this.name} doesn't have the power of ${powerName}.`);
+        }
+      },
+      revealIdentity: function () {
+        console.log(`${this.name}'s secret identity is ${this.identity}.`);
+      },
+    },
+    {
+      name: "supzero",
+      identity: "Lex Luthor",
+      powers: ["intelligence", "wealth", "power armor"],
+      isHero: false,
+      picture: "sub-removebg-preview 1.png",
+      usePower: function (powerName) {
+        if (this.powers.includes(powerName)) {
+          console.log(`${this.name} uses their power of ${powerName}!`);
+        } else {
+          console.log(`${this.name} doesn't have the power of ${powerName}.`);
+        }
+      },
+      revealIdentity: function () {
+        console.log(`${this.name}'s secret identity is ${this.identity}.`);
+      },
+    },
+    {
+      name: "god of war",
+      identity: "Arthur Curry",
+      powers: ["super strength", "aquatic abilities", "trident mastery"],
+      isHero: true,
+      picture: "gow-removebg-preview 1 (1).png",
+      usePower: function (powerName) {
+        if (this.powers.includes(powerName)) {
+          console.log(`${this.name} uses their power of ${powerName}!`);
+        } else {
+          console.log(`${this.name} doesn't have the power of ${powerName}.`);
+        }
+      },
+      revealIdentity: function () {
+        console.log(`${this.name}'s secret identity is ${this.identity}.`);
+      },
+    },
+  ];
+  
+  superheroesList.forEach((hero) => {
+    hero.usePower("super strength");
+    hero.revealIdentity();
+  });
+  
+  // Dynamically update superhero images based on selection
+  function updateImage(selectId, imgId) {
+    const selectedName = document.getElementById(selectId).value;
+    const imgElement = document.getElementById(imgId);
+  
+    // Find the superhero object based on the selected name
+    const superhero = superheroesList.find((hero) => hero.name === selectedName);
+  
+    imgElement.src =
+      superhero && superhero.picture
+        ? superhero.picture
+        : "joker-removebg-preview 1.png";
+  }
+  
+  // Event listeners for both selects
+  document.getElementById("mySelect1").addEventListener("change", function () {
+    updateImage("mySelect1", "characterImage1");
+  });
+  
+  document.getElementById("mySelect2").addEventListener("change", function () {
+    updateImage("mySelect2", "characterImage2");
+  });
+  
 
-// Function to display all characters
-function displayAll() {
-    const filteredCharacters = characters;
-    displayCharacters(filteredCharacters);
-}
 
-// Function to display only heroes
-function displayHeroes() {
-    const filteredCharacters = characters.filter(character => character.isHero);
-    displayCharacters(filteredCharacters);
-}
+  console.log("----------------------------------------------------");
+  console.log("----------------------------------------------------");
+  console.log("----------------------------------------------------");
+  console.log("----------------------------------------------------");
+  console.log("----------------------------------------------------");
+  console.log("----------------------------------------------------");
+  console.log("----------------------------------------------------");
+  // Define the Superhero class
+  class Superhero {
+    constructor(name, identity, powers) {
+      this.name = name;
+      this.identity = identity;
+      this.powers = powers;
+    }
+  
+    // Method to simulate the superhero fighting
+    fight() {
+      console.log(`${this.name} is fighting with powers: ${this.powers.join(", ")}!`);
+    }
+  }
+  
+  // Create new superheroes using the class
+  let superhero1 = new Superhero("Batman", "Bruce Wayne", ["Super strength"]);
+  let superhero2 = new Superhero("Arrowman", "Oliver Queen", ["Intelligence"]);
+  let superhero3 = new Superhero("Wonder Woman", "Diana Prism", ["Wall climbing"]);
+  
+  // Call fight method for each superhero
+  superhero1.fight();
+  superhero2.fight();
+  superhero3.fight();
+  
 
-// Function to display only villains
-function displayVillains() {
-    const filteredCharacters = characters.filter(character => !character.isHero);
-    displayCharacters(filteredCharacters);
-}
+  const Superman = Object.create(Superhero);
+Superman.name = 'Killer';
+Superman.power = 'Super Strength and Flying';
+Superman.identity = "Killer Gimmi";
 
-// Function to display characters dynamically
-function displayCharacters(filteredCharacters) {
-    const characterListDiv = document.getElementById('character-list');
-    characterListDiv.innerHTML = '';  // Clear previous content
+Superman.fly = function() {
+  console.log(`${this.name} is flying through the sky!`);
+};
 
-    filteredCharacters.forEach(character => {
-        const card = document.createElement('div');
-        card.classList.add('character-card');
+Superman.fly();   
 
-        // Name and Identity
-        const name = document.createElement('h2');
-        name.innerText = character.name;
-        const identity = document.createElement('p');
-        identity.innerText = `Identity: ${character.identity}`;
-
-        // Powers
-        const powers = document.createElement('p');
-        powers.innerText = `Powers: ${character.powers.join(', ')}`;
-
-        // Buttons
-        const buttonGroup = document.createElement('div');
-        buttonGroup.classList.add('button-group');
-
-        const revealIdentityBtn = document.createElement('button');
-        revealIdentityBtn.innerText = 'Reveal Identity';
-        revealIdentityBtn.onclick = () => alert(`The secret identity of ${character.name} is ${character.identity}`);
-
-        const showPowersBtn = document.createElement('button');
-        showPowersBtn.innerText = 'Show Powers';
-        showPowersBtn.onclick = () => alert(`${character.name}'s powers are: ${character.powers.join(', ')}`);
-
-        buttonGroup.appendChild(revealIdentityBtn);
-        buttonGroup.appendChild(showPowersBtn);
-
-        // Append elements to card
-        card.appendChild(name);
-        card.appendChild(identity);
-        card.appendChild(powers);
-        card.appendChild(buttonGroup);
-
-        // Append card to character list
-        characterListDiv.appendChild(card);
-    });
-}
-
-// Display all characters by default when the page loads
-displayAll();
+console.log("``````````````````````````````````````````````````````````");
+console.log("``````````````````````````````````````````````````````````");
+console.log("``````````````````````````````````````````````````````````");
+console.log("``````````````````````````````````````````````````````````");
