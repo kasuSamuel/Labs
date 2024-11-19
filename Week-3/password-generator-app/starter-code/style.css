@@ -265,3 +265,20 @@ display: flex;
   display: flex;
   align-items: center;
 }
+
+
+@media (max-width: 600px) {
+  /* CSS rules for screens 600px or smaller (e.g., mobile devices) */
+  body {
+    font-size: 14px;
+  }
+
+  .some-element {
+    padding: 10px;
+  }
+
+  /* Example: Adjusting border for a mobile screen */
+  bar {
+    border: 1px solid #F64A4A;
+  }
+}

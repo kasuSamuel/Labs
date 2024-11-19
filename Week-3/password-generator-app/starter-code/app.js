@@ -55,7 +55,6 @@ copyButton.addEventListener('click', () => {
     }, 2000);
 });
 
-
 // Function to generate a random password
 function generatePassword() {
   const length = parseInt(lengthSlider.value, 10);
@@ -86,7 +85,6 @@ function generatePassword() {
   passwordText.style.color= '#E6E5EA';
   updateStrength(password);
 }
-
 
 // Update strength indicator
 function updateStrength(password) {
