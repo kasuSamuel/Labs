@@ -72,8 +72,7 @@ function generatePassword() {
 
   // Validate inputs
   if (charPool === "") {
-    passwordText.textContent = "No Password!";
-    passwordText.style.color= '#E6E5EA';
+    passwordText.textContent = alert("Please select an option for the password.");
     return;
   }
 
@@ -83,7 +82,7 @@ function generatePassword() {
     password += charPool[randomIndex];
   }
  
-  passwordText.textContent = password || "No Password!";
+  passwordText.textContent = password || alert("Please check the length of the password.");
   passwordText.style.color= '#E6E5EA';
   updateStrength(password);
 }
@@ -99,34 +98,42 @@ function updateStrength(password) {
   if (/[!@#$%^&*()_+[\]{}|;:,.<>?]/.test(password)) strength++;
 
   // Update strength bars
-  strengthBars.forEach((bar, index) => {
-    bar.classList.remove("active");
-    bar.classList.add("not-active");
+ // Update strength bars
+ strengthBars.forEach((bar, index) => {
+    // Reset styles for all bars
+    bar.style.backgroundColor = "";
+    bar.style.border = "";
+
+    // Add or remove the appropriate classes
     if (index < strength) {
-        // Reset styles to remove any previous state
-        bar.style.backgroundColor = 'blue'; 
-        bar.style.border = 'red';          
-    
-        // Apply styles based on strength
-        if (strength === 1) {
-            bar.style.backgroundColor = '#F64A4A';
-            bar.style.border = '#F64A4A solid 1px';
-        } 
-        if (strength === 2) {
-            bar.style.backgroundColor = '#FB7C58';
-            bar.style.border = '#FB7C58 solid 1px';
-        } 
-        if (strength === 3) {
-            bar.style.backgroundColor = '#F8CD65';
-            bar.style.border = '#F8CD65 solid 1px';
-        } 
-        if (strength === 4) {
-            bar.style.backgroundColor = '#A4FFAF';
-            bar.style.border = '#A4FFAF solid 1px';
-        }
+      // Active bar
+      bar.classList.add("active");
+      bar.classList.remove("not-active");
+
+      // Apply styles based on current strength level
+      switch (strength) {
+        case 1:
+          bar.style.backgroundColor = "#F64A4A";
+          bar.style.border = "#F64A4A solid 1px";
+          break;
+        case 2:
+          bar.style.backgroundColor = "#FB7C58";
+          bar.style.border = "#FB7C58 solid 1px";
+          break;
+        case 3:
+          bar.style.backgroundColor = "#F8CD65";
+          bar.style.border = "#F8CD65 solid 1px";
+          break;
+        case 4:
+          bar.style.backgroundColor = "#A4FFAF";
+          bar.style.border = "#A4FFAF solid 1px";
+          break;
+      }
+    } else {
+      // Inactive bar
+      bar.classList.remove("active");
+      bar.classList.add("not-active");
     }
-    
-    
   });
 
   // Update strength level title
