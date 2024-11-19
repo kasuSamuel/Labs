@@ -16,18 +16,19 @@ class Clock {
 
       // Method to return the time in 12-hour format with AM/PM
   get12HourTime () {
-    const hour12 = this.hours % 12; hour12 = hour12 ? hour12 : 12; // If hour is 0, use 12
-    const ampm = this.hours >= 12 ? 'PM' : 'AM';
+    let hour12 = this.hours % 12;
+    hour12 = hour12 ? hour12 : 12; // If hour is 0, use 12
+    const period = this.hours >= 12 ? 'PM' : 'AM';
     const formattedMinutes = this.minutes < 10 ? '0' + this.minutes : this.minutes;
     const formattedSeconds = this.seconds < 10 ? '0' + this.seconds : this.seconds;
-    return `${hour12}:${formattedMinutes}:${formattedSeconds} ${ampm}`;
+    return `${hour12}:${formattedMinutes}:${formattedSeconds} ${period}`;
   };
 }
 
 
   
   // Flag to track format state (24-hour format is default)
-  const is24HourFormat = true;
+  let is24HourFormat = true;
   
   // Function to update the clock every second
   function updateClock() {
