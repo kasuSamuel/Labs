@@ -195,8 +195,12 @@ body {
     align-items: center;
   }
   
+  .level-title{
+    width: 100px;
+    font-size: 13.8px;
+  }
   .strength-bars {
-width: 40px;
+width: 45px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 4px;}
@@ -207,11 +211,7 @@ width: 7px;
     border: #E6E5EA solid 1px;
   }
   
-  .bar.active {
-    background: #F8CD65;
-    border: #F8CD65 solid 1px;
-
-  }
+ 
   
   .bar.not-active {
     border: #E6E5EA solid 1px;
