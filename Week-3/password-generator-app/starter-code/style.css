@@ -41,7 +41,7 @@ body {
 }
   
 #password{
-    color: #fff;
+    color: #E6E5EA;
     font-size: 32px;
     font-weight: bold;
   }
@@ -49,15 +49,15 @@ body {
 
   
   .copy-btn  {
-    font-size: 18px;
+    font-size: 25px;
     color: #A4FFAF;
     margin-left: .5em;
     cursor: pointer;
 
   }
 
-  .copy-btn img :hover {
-    color: #F8CD65;
+  .copy-btn:hover {
+    color: #fff;
   }
   
   .controls {
@@ -233,6 +233,11 @@ width: 7px;
     font-family: JetBrains Mono;
   }
   
+  .generate-btn:hover {
+    background: #1c1c1c;
+    border: #A4FFAF solid 1px;
+    color: #A4FFAF;
+  }
  .generate-btn span{
     margin-left: 1rem;
  }
