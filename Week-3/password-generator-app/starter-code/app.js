@@ -1,3 +1,4 @@
+// DOM Elements
 const lengthSlider = document.getElementById("length");
 const lengthValue = document.getElementById("length-value");
 const copyButton = document.querySelector('.copy-btn');
@@ -10,7 +11,6 @@ const symbolsCheckbox = document.getElementById("symbols");
 const generateBtn = document.querySelector(".generate-btn");
 const strengthBars = document.querySelectorAll(".strength-bars .bar");
 const levelTitle = document.querySelector(".level-title");
-const copyBtn = document.querySelector(".copy-btn");
 
 // Password character sets
 const uppercaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -18,126 +18,124 @@ const lowercaseChars = "abcdefghijklmnopqrstuvwxyz";
 const numberChars = "0123456789";
 const symbolChars = "!@#$%^&*()_+[]{}|;:,.<>?";
 
+// Update slider background on input
+const updateSliderBackground = (slider) => {
+  const value = slider.value;
+  const min = slider.min || 0;
+  const max = slider.max || 100;
+  const percentage = ((value - min) * 100) / (max - min);
+  lengthSlider.style.background = `linear-gradient(to right, #A4FFAF  ${percentage}%, #0f0f0f ${percentage}%)`;
+};
+
 lengthSlider.addEventListener("input", () => {
   lengthValue.textContent = lengthSlider.value;
+  updateSliderBackground(lengthSlider);
 });
 
-// Slider functionality
-    function updateSliderBackground(slider) {
-        const value = slider.value;
-        const min = slider.min || 0;
-        const max = slider.max || 100;
-        const percentage = ((value - min) * 100) / (max - min);
-        lengthSlider.style.background = `linear-gradient(to right, #A4FFAF  ${percentage}%, #0f0f0f ${percentage}%)`;
-    }
-
-    // Attach event listener
-lengthSlider.addEventListener("input",  () => {
-    updateSliderBackground(lengthSlider);
-});
-// Initialize background on page load
+// Initialize slider background
 updateSliderBackground(lengthSlider);
 
-// Function to copy the text to clipboard
-copyButton.addEventListener('click', () => {
-    // Use the Clipboard API to write the text to the clipboard
-    navigator.clipboard.writeText(passwordText.textContent)
-        .then(() => {
-            message.style.display = 'block';
-        })
-        .catch(err => {
-            message.innerText = 'Failed to copy password.';
-            message.style.display = 'block';
-        });
+// Function to copy password to clipboard
+const copyToClipboard = () => {
+  navigator.clipboard.writeText(passwordText.textContent)
+    .then(() => {
+      message.style.display = 'block';
+    })
+    .catch(err => {
+      message.innerText = 'Failed to copy password.';
+      message.style.display = 'block';
+    });
 
-    setTimeout(() => {
-        message.style.display = 'none';
-    }, 2000);
-});
+  setTimeout(() => {
+    message.style.display = 'none';
+  }, 1500);
+};
 
-// Function to generate a random password
-function generatePassword() {
-  const length = parseInt(lengthSlider.value, 10);
-  const includeUppercase = uppercaseCheckbox.checked;
-  const includeLowercase = lowercaseCheckbox.checked;
-  const includeNumbers = numbersCheckbox.checked;
-  const includeSymbols = symbolsCheckbox.checked;
+copyButton.addEventListener('click', copyToClipboard);
 
-  let charPool = "";
-  if (includeUppercase) charPool += uppercaseChars;
-  if (includeLowercase) charPool += lowercaseChars;
-  if (includeNumbers) charPool += numberChars;
-  if (includeSymbols) charPool += symbolChars;
-
-  // Validate inputs
-  if (charPool === "") {
-    passwordText.textContent = alert("Please select an option for the password.");
-    return;
+// Password Generator Class
+class PasswordGenerator {
+  constructor(length, options) {
+    this.length = length;
+    this.options = options;
   }
 
-  let password = "";
-  for (let i = 0; i < length; i++) {
-    const randomIndex = Math.floor(Math.random() * charPool.length);
-    password += charPool[randomIndex];
-  }
- 
-  passwordText.textContent = password || alert("Please check the length of the password.");
-  passwordText.style.color= '#E6E5EA';
-  updateStrength(password);
-}
+  // Generate a random password based on user selections
+  generatePassword() {
+    const { length, options } = this;
+    const { includeUppercase, includeLowercase, includeNumbers, includeSymbols } = options;
 
-// Update strength indicator
-function updateStrength(password) {
-  let strength = 0;
+    let charPool = "";
+    if (includeUppercase) charPool += uppercaseChars;
+    if (includeLowercase) charPool += lowercaseChars;
+    if (includeNumbers) charPool += numberChars;
+    if (includeSymbols) charPool += symbolChars;
 
-  if (password.length >= 8) strength++;
-  if (/[A-Z]/.test(password)) strength++;
-  if (/[0-9]/.test(password)) strength++;
-  if (/[!@#$%^&*()_+[\]{}|;:,.<>?]/.test(password)) strength++;
-
-  // Update strength bars
- // Update strength bars
- strengthBars.forEach((bar, index) => {
-    // Reset styles for all bars
-    bar.style.backgroundColor = "";
-    bar.style.border = "";
-
-    // Add or remove the appropriate classes
-    if (index < strength) {
-      // Active bar
-      bar.classList.add("active");
-      bar.classList.remove("not-active");
-
-      // Apply styles based on current strength level
-      switch (strength) {
-        case 1:
-          bar.style.backgroundColor = "#F64A4A";
-          bar.style.border = "#F64A4A solid 1px";
-          break;
-        case 2:
-          bar.style.backgroundColor = "#FB7C58";
-          bar.style.border = "#FB7C58 solid 1px";
-          break;
-        case 3:
-          bar.style.backgroundColor = "#F8CD65";
-          bar.style.border = "#F8CD65 solid 1px";
-          break;
-        case 4:
-          bar.style.backgroundColor = "#A4FFAF";
-          bar.style.border = "#A4FFAF solid 1px";
-          break;
-      }
-    } else {
-      // Inactive bar
-      bar.classList.remove("active");
-      bar.classList.add("not-active");
+    if (charPool === "") {
+      alert("Please select an option for the password.");
+      return;
     }
-  });
 
-  // Update strength level title
-  const strengthTitles = ["TOO WEAK!", "WEAK", "MEDIUM", "STRONG"];
-  levelTitle.textContent = strengthTitles[strength - 1] || "";
+    let password = "";
+    for (let i = 0; i < length; i++) {
+      const randomIndex = Math.floor(Math.random() * charPool.length);
+      password += charPool[randomIndex];
+    }
+
+    passwordText.textContent = password;
+    passwordText.style.color = '#E6E5EA';
+    this.updateStrength(password);
+  }
+
+  // Update password strength indicator
+  updateStrength(password) {
+    let strength = 0;
+
+    if (password.length >= 8) strength++;
+    if (/[A-Z]/.test(password)) strength++;
+    if (/[0-9]/.test(password)) strength++;
+    if (/[!@#$%^&*()_+[\]{}|;:,.<>?]/.test(password)) strength++;
+
+    this.updateStrengthBars(strength);
+  }
+
+  // Update the strength bars based on the password strength
+  updateStrengthBars(strength) {
+    strengthBars.forEach((bar, index) => {
+      bar.classList.remove("active", "not-active");
+      bar.style.backgroundColor = "";
+      bar.style.border = "";
+
+      if (index < strength) {
+        bar.classList.add("active");
+        bar.classList.remove("not-active");
+
+        // Apply styles based on strength level
+        const strengthColors = ["#F64A4A", "#FB7C58", "#F8CD65", "#A4FFAF"];
+        bar.style.backgroundColor = strengthColors[strength - 1];
+        bar.style.border = `${strengthColors[strength - 1]} solid 1px`;
+      } else {
+        bar.classList.add("not-active");
+      }
+    });
+
+    const strengthTitles = ["TOO WEAK!", "WEAK", "MEDIUM", "STRONG"];
+    levelTitle.textContent = strengthTitles[strength - 1] || "";
+  }
 }
 
-// Event Listener for Generate Button
-generateBtn.addEventListener("click", generatePassword);
+// Function to handle password generation button click
+const handleGeneratePassword = () => {
+  const length = parseInt(lengthSlider.value, 10);
+  const options = {
+    includeUppercase: uppercaseCheckbox.checked,
+    includeLowercase: lowercaseCheckbox.checked,
+    includeNumbers: numbersCheckbox.checked,
+    includeSymbols: symbolsCheckbox.checked,
+  };
+
+  const passwordGenerator = new PasswordGenerator(length, options);
+  passwordGenerator.generatePassword();
+};
+
+generateBtn.addEventListener("click", handleGeneratePassword);
