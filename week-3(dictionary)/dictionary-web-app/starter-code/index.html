@@ -35,43 +35,27 @@
       </div>
 
       <div class="search-bar">
-        <input type="text" placeholder="Search for any word..." class="search-input">
+        <input type="text" id="wordInput" placeholder="Search for any word..." class="search-input">
         <button class="search-button"><img src="./assets/images/icon-search.svg" alt=""></button>
       </div>
     </header>
 
     <main>
-      <h1 class="word">keyboard</h1>
-      <p class="phonetics">/ˈkiːbɔːrd/</p>
-      <section class="definition">
-        <h2 class="part-of-speech">noun</h2>
-        <ul class="meaning">
-          <li>A set of keys used to operate a typewriter, computer, etc.</li>
-          <li>
-            A component of many instruments including the piano, organ, and harpsichord, 
-            consisting of usually black and white keys that cause different tones to be produced when struck.
-          </li>
-          <li>
-            A device with keys of a musical keyboard, used to control electronic sound-producing devices 
-            which may be built into or separate from the keyboard device.
-          </li>
-        </ul>
-        <p class="synonyms"><strong>Synonyms:</strong> <span>electronic keyboard</span></p>
-      </section>
-      <section class="definition">
-        <h2 class="part-of-speech">verb</h2>
-        <ul class="meaning">
-          <li>To type on a computer keyboard.</li>
-        </ul>
-        <blockquote>“Keyboarding is the part of this job I hate the most.”</blockquote>
-      </section>
+        <div style="display: flex; width:100; justify-content: space-between;">
+          <div>
+
+            <h1 id="wordTitle" class="word">No word</h1>
+            <p id="phonetics" class="phonetics">/nəʊ wəːd/</p>
+          </div>
+          <img id="audioIcon" src="./assets/images/icon-play.svg" alt="" onclick="playAudio()">
+        </div>
+<section>
+  
+</section>
+
+
     </main>
 
-    <footer>
-      <p class="source">
-        Source: <a href="https://en.wiktionary.org/wiki/keyboard" target="_blank">https://en.wiktionary.org/wiki/keyboard</a>
-      </p>
-    </footer> 
   </div>
   <script src="app.js"></script>
 </body>
