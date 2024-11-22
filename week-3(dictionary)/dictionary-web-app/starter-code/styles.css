@@ -121,24 +121,31 @@ padding-left: .2rem;
  .search-input::placeholder {
     color: #d0cece; 
 font-weight: bold;
-font-family: 'Inter';
- }
+font-size: 1rem;}
+
+.search-input {
+
+  font-weight: bold; 
+}
 
  .search-input:focus {
     border-color: #A445ED;
     outline: none; 
   }
 
-  ul li {
-    padding: .4rem; /* Adjust space for the bullet */
-}
+
   
+.display-meaning{
+  color: #757575;
+  font-size: 1.2rem; 
+}
 .synonyms-title {
     color: #757575;
     font-size: 1.2rem;
     margin-right: 2rem;
   }
   .synonyms{ 
+    margin-top: 2rem;
     font-style: italic;
     color: #A445ED; 
     font-weight: bold;
@@ -186,9 +193,7 @@ font-size: 10px; }
     margin: 10px 0;
   }
   
-  .synonyms {
-    margin: 10px 0;
-  }
+
 
   .white-text {
     color: white;
@@ -207,10 +212,41 @@ font-size: 10px; }
     text-decoration: none;
   }
 
+.line {
+  width: 34rem; 
+  height: 1px; 
+  background-color: #979797;
+   margin-top: .3rem;
+}
 
-  @media screen and (max-width: 600px) {
+error{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  display: none;
+}
+
+.emoji{
+
+  font-size: 6rem;
+}
+
+
+
+@media screen and (min-width: 360px) and (max-width: 440px) {
     /* Styles for screens that are 600px or smaller */
+    body{
+      width: 100%;
+      height: 100%;
+  }
+
     .container {
-        width: 80%;
+        width: 90%;
+        padding: 1rem;
+    }
+    .line{
+      width: 15rem;
     }
 }
