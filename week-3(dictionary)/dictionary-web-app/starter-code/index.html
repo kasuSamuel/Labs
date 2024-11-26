@@ -45,10 +45,13 @@
         <input type="text" id="wordInput" placeholder="Search for any word..." class="search-input">
         <button class="search-button"><img src="./assets/images/icon-search.svg" alt=""></button>
       </div>
-      <p class="error" style="color: red ; display: none;">Whoops, can’t be empty…</p>
+      <p class="first-error" style="color: red ; display: none;">Whoops, can’t be empty…</p>
     </header>
 
     <main>
+      <div class="all-content">
+
+  
       <div style="display: flex; width:100%; justify-content: space-between;">
         <div class="word-container">
 
@@ -62,19 +65,21 @@
       <section class="definition">
         
       </section>
-
-
-      <error>
-        <p class="emoji"><span>😕</span></p>
-        <div class="error-message">
-          <p style="font-weight: bold; font-size: large;">No Definitions Found</p>
-          <p style="color: #838383;">Sorry pal, we couldn't find definitions for the word you were looking for. You can try the search again at later time or head to the web instead.</p>
-        </div>
-      </error>
-    </main>
+    </div>
     <footer>
 
     </footer>
+
+    </main>
+
+
+    <error style="display: none;">
+      <p class="emoji"><span>😕</span></p>
+      <div class="error-message">
+        <p style="font-weight: bold; font-size: large;">No Definitions Found</p>
+        <p style="color: #838383;">Sorry pal, we couldn't find definitions for the word you were looking for. You can try the search again at later time or head to the web instead.</p>
+      </div>
+    </error>
   </div>
   <script src="app.js"></script>
 </body>

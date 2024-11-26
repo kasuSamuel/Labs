@@ -5,9 +5,10 @@ const searchBar = document.querySelector(".search-bar");
 const imgElement = document.querySelector(".toggle-wrapper img");
 const searchButton = document.querySelector(".search-button");
 const input = document.getElementById("wordInput");
+document.getElementById("#audioIcon");
 
 // Initialize the page with saved preferences
-document.addEventListener("DOMContentLoaded", () => {
+
   // Load Dark Mode preference
   const savedMode = localStorage.getItem("theme") || "light";
   document.documentElement.setAttribute("data-theme", savedMode);
@@ -21,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
     input.value = savedWord;
     displayWordData(JSON.parse(savedWordContent));
   }
-});
+
 
 // Apply styles based on mode
 function applyModeStyles(isDarkMode) {
@@ -32,19 +33,78 @@ function applyModeStyles(isDarkMode) {
   fontSelector.classList.toggle("white-text", isDarkMode);
 }
 
+document.getElementById("audioIcon").addEventListener("mouseover", function () {
+  this.src = "./assets/images/icon-play-hover.svg";
+});
+
+document.getElementById("audioIcon").addEventListener("mouseout", function () {
+  this.src = "./assets/images/icon-play.svg";
+});
+
 // Toggle Dark/Light Mode
 modeToggle.addEventListener("change", () => {
   const isDarkMode = modeToggle.checked;
   const mode = isDarkMode ? "dark" : "light";
 
-  // Save the mode to LocalStorage
   localStorage.setItem("theme", mode);
 
-  // Apply the mode styles
   document.documentElement.setAttribute("data-theme", mode);
   applyModeStyles(isDarkMode);
 });
 
+
+fontSelector.addEventListener("change", (e) => {
+  // Get the value of the selected font
+  const selectedFont = e.target.value;
+  
+  // Map the font options to actual font families
+  let fontFamily;
+  switch (selectedFont) {
+    case "serif":
+      fontFamily = "Georgia, serif";
+      break;
+    case "mono":
+      fontFamily = "Courier New, monospace";
+      break;
+    case "cursive":
+      fontFamily = "Comic Sans MS, cursive";
+      break;
+    case "fantasy":
+      fontFamily = "Papyrus, fantasy";
+      break;
+    case "times":
+      fontFamily = "Times New Roman, Times, serif";
+      break;
+    case "arial":
+      fontFamily = "Arial, sans-serif";
+      break;
+    case "courier":
+      fontFamily = "Courier, monospace";
+      break;
+    default:
+      fontFamily = "Arial, sans-serif"; // Default font
+  }
+
+  // Apply the selected font to the body
+  document.body.style.fontFamily = fontFamily;
+});
+
+input.addEventListener("click", function () {
+  searchBar.style.borderColor = "#A445ED";
+  searchBar.style.borderStyle = "solid";
+  searchBar.style.borderWidth = "3px";
+});
+
+
+document.addEventListener("click", function (event) {
+  // Check if the click was not inside the searchBar or searchInput
+  if (
+    !searchBar.contains(event.target) &&
+    !input.contains(event.target)
+  ) {
+    searchBar.style.borderColor = "transparent";
+  }
+});
 // Fetch Word Definition
 async function fetchWordDefinition(word) {
   if (!word) {
@@ -70,6 +130,7 @@ async function fetchWordDefinition(word) {
     // Display the word data
     displayWordData(data);
   } catch (error) {
+
     console.error("Error fetching data:", error);
   }
 }
@@ -79,6 +140,16 @@ function displayWordData(data) {
   const wordContainer = document.querySelector(".word-container");
   const footer = document.querySelector("footer");
   const section = document.querySelector("section");
+
+  document.getElementById("audioIcon").addEventListener("click", function () {
+    const audioUrl = localStorage.getItem("audioUrl");
+    if (audioUrl) {
+      const audio = new Audio(audioUrl);
+      audio.play();
+    }
+  });
+  localStorage.setItem("audioUrl", data[0].phonetics[0]?.audio || "");
+
 
   wordContainer.innerHTML = `
     <h1 id="wordTitle" class="word">${data[0].word}</h1>
@@ -111,7 +182,7 @@ function displayWordData(data) {
             </ul>
             <div class="synonyms">
               <p class="synonyms-title">Synonyms:</p>
-              ${meaning.definitions[0]?.synonyms?.join(", ") || "None"}
+              ${meaning.definitions[0]?.synonyms?.join(", ")}
             </div>
           </div>
         `)
@@ -122,22 +193,28 @@ function displayWordData(data) {
 
 // Handle Fetch Errors
 function handleFetchError(status) {
-  const errorElement = document.querySelector(".error");
-  errorElement.style.display = "block";
-
+  const errorElement = document.querySelector("error");
+const allContent = document.querySelector(".all-content");
+  const footer = document.querySelector("footer");
   if (status === 404) {
-    errorElement.textContent = "Word not found.";
+
+    errorElement.style.display = "block";
+    allContent.style.display = "none";
+    footer.style.display = "none";
+    displayWordData(data);
   } else {
     errorElement.textContent = `Error: ${status}`;
   }
 }
 
 // Display Error
-function displayError(message) {
-  const errorElement = document.querySelector(".error");
-  errorElement.textContent = message;
+function displayError() {
+  const errorElement = document.querySelector(".first-error");
   errorElement.style.display = "block";
-  setTimeout(() => (errorElement.style.display = "none"), 2000);
+  searchBar.style.borderColor = "red";
+  searchBar.style.borderStyle = "solid";
+  searchBar.style.borderWidth = "3px";
+  setTimeout(() => (errorElement.style.display = "none", searchBar.style.borderColor = "transparent"), 2000);
 }
 
 // Trigger search on button click or Enter key
