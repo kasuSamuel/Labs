@@ -1,0 +1,221 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  body {
+    background: linear-gradient(145deg, #f2f2f2, #e0e0e0);
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+    padding: 20px;
+    font-size: 16px;
+  }
+  
+  /* Main container */
+  .container {
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1), 0 4px 15px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    max-width: 450px;
+    padding: 40px;
+    text-align: center;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  .container:hover {
+    transform: translateY(-5px);
+  }
+  
+  /* Clock Styling */
+  .clock {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    transition: color 0.5s ease-in-out;
+  }
+  .flex{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  /* Buttons */
+  .button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin: 12px 0;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+    width: 100%;
+    position: relative;
+  }
+  
+  .button:focus {
+    outline: none;
+  }
+  
+  /* Gradient Toggle Button */
+  .toggle-btn {
+    background: #677bd6;
+    color: white;
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+  }
+  
+  .toggle-btn:hover {
+    background: linear-gradient(135deg, #7ecadd, #677bd6);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+  }
+  
+  .toggle-btn:active {
+    transform: translateY(1px);
+    box-shadow: none;
+  }
+  
+  /* Gradient Change Color Button */
+  .change-color-btn {
+    background: #677bd6;
+    color: white;
+    box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
+  }
+  
+  .change-color-btn:hover {
+    background: linear-gradient(135deg, #7ecadd, #677bd6);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(46, 204, 113, 0.4);
+  }
+  
+  .change-color-btn:active {
+    transform: translateY(1px);
+    box-shadow: none;
+  }
+  
+  /* Gradient Set Alarm Button */
+  .set-alarm-btn {
+    background: #677bd6;
+    color: white;
+    box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3);
+  }
+  
+  .set-alarm-btn:hover {
+    background: linear-gradient(135deg, #7ecadd, #677bd6);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(243, 156, 18, 0.4);
+  }
+  
+  .set-alarm-btn:active {
+    transform: translateY(1px);
+    box-shadow: none;
+  }
+  
+  /* Gradient Cancel Alarm Button */
+  .cancel-alarm-btn {
+    background: #677bd6;
+    color: white;
+    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+  }
+  
+  .cancel-alarm-btn:hover {
+    background: linear-gradient(135deg, #7ecadd, #677bd6);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
+  }
+  
+  .cancel-alarm-btn:active {
+    transform: translateY(1px);
+    box-shadow: none;
+  }
+  
+  /* Input Styling */
+  .input {
+    padding: 12px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    width: 100%;
+    margin-top: 12px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .input:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 8px rgba(52, 152, 219, 0.3);
+  }
+  
+  /* Label */
+  .label {
+    font-weight: 500;
+    margin-bottom: 10px;
+    display: block;
+    color: #555;
+  }
+  
+  /* Alarm Status */
+  .alarm-status {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: #95a5a6;
+    font-style: italic;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  /* Alarm Container */
+  .alarm-container {
+    margin-top: 20px;
+  }
+  
+  /* Professional Animations */
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+  
+  .container {
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  /* Add subtle pulsing effect for the clock */
+  .clock:hover {
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+  
+  /* Media Queries for Responsiveness */
+  @media (max-width: 600px) {
+    .container {
+      width: 90%;
+      padding: 25px;
+    }
+  
+    .clock {
+      font-size: 2rem;
+    }
+  
+    .button {
+      font-size: 1rem;
+      padding: 10px 20px;
+    }
+  }
+  

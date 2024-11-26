@@ -1,0 +1,258 @@
+:root {
+    --background: #ffffff;
+    --text-color: #000000;
+    --accent: #6b5b95;
+  }
+  
+  [data-theme="dark"] {
+    --background: #121212;
+    --text-color: #ffffff;
+    --accent: #bb86fc;
+  }
+
+
+
+  
+  body {
+    font-family: 'Inconsolata', monospace;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    
+  }
+  
+  .container {
+    width: 38%;
+    height: auto;
+    margin: 3rem auto;
+    padding: 5rem;
+    box-shadow: 0 4px 8px rgba(206, 228, 241, 0.1), 0 4px 16px rgba(194, 207, 235, 0.1);
+    border-radius: 8px; 
+  }
+  header {
+    width: 100%;
+
+  }
+
+  #logo {
+width: 1.5rem;
+    height: 3rem;
+  }
+  
+  
+  .toggle-container{
+    display: flex;
+  }
+  .top-bar {
+    width: 100%;
+    height: 2.3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .font-selector {
+border: none; 
+background-color: transparent;
+font-weight: bold;
+font-size: 10px;
+outline: none;
+font-family: 'Inter';
+
+
+}
+  
+  .toggle-wrapper {
+    display: flex;
+    align-items: center;
+  }
+  
+  .toggle-wrapper img {
+    width: 13px;
+    margin-left: 2px;
+
+  }
+  .toggle-label {
+    margin-right: 10px;
+  }
+  
+  .mode-toggle {
+    appearance: none;
+    width: 1.6rem;
+    height: .8rem;
+    background: #757575;
+    border-radius: 20px;
+    position: relative;
+    cursor: pointer;
+  }
+  .mode-toggle:checked {
+background-color: #A445ED;
+  }
+  
+  .mode-toggle::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    background: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 2.3px;
+    left: 2px;
+    transition: 0.3s;
+  }
+  
+  .mode-toggle:checked::before {
+    left: 15px;
+  }
+  
+  .search-bar {
+    width: 100%;
+    display: flex;
+    margin: 20px 0;
+    background-color: #f4f4f4;
+    justify-content: space-between;
+    border-radius: 10px;
+padding-left: .2rem; 
+ }
+  
+ .search-input::placeholder {
+    color: #d0cece; 
+font-weight: bold;
+font-size: 1rem;}
+
+.search-input {
+cursor: pointer;
+  font-weight: bold; 
+}
+
+ .search-input:focus {
+    border-color: #A445ED;
+    outline: none; 
+  }
+
+#audioIcon{
+  cursor: pointer;
+}
+  
+
+.display-meaning{
+  color: #757575;
+  font-size: 1.2rem; 
+}
+.synonyms-title {
+    color: #757575;
+    font-size: 1.2rem;
+    margin-right: 2rem;
+  }
+  .synonyms{ 
+    margin-top: 2rem;
+    font-style: italic;
+    color: #A445ED; 
+    font-weight: bold;
+    display: flex;
+
+
+  }
+  ul li::marker {
+    color: #A445ED; 
+    font-size: 20px; 
+}
+  .search-input {
+ border: none;
+ background-color: transparent;
+ width: 100%;
+ outline: none;
+ font-family: 'Lora';
+ font-weight: bold; 
+font-size: 10px; }
+  
+  .search-button {
+    border: none;
+    background-color: transparent;
+    padding: 10px;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+  }
+  
+  .word {
+    font-size: 3rem;
+    margin: 10px 0;
+  }
+  
+  .phonetics {
+    color: #A445ED;
+  }
+  
+  .part-of-speech {
+    font-size: 1.5rem;
+    margin-top: 20px;
+    font-style: italic;
+  }
+  
+  .meaning {
+    margin: 10px 0;
+  }
+  
+
+
+  .white-text {
+    color: white;
+  }
+  
+  blockquote {
+    font-style: italic;
+  }
+  
+  footer {
+    margin-top: 20px;
+  }
+  
+  .source a {
+    color: #A445ED;
+    text-decoration: none;
+  }
+
+.line {
+  width: 35rem; 
+  height: 1px; 
+  background-color: #979797;
+   margin-top: .3rem;
+}
+
+error{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  display: none;
+}
+
+.emoji{
+
+  font-size: 6rem;
+}
+
+
+
+@media screen and (min-width: 360px) and (max-width: 440px) {
+    /* Styles for screens that are 600px or smaller */
+    body{
+      width: 100%;
+      height: 100%;
+  }
+
+    .container {
+        width: 90%;
+        padding: 1rem;
+    }
+    .line{
+      width: 15rem;
+    }
+}

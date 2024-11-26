@@ -1,0 +1,290 @@
+/* General styles */
+body {
+    font-family: 'JetBrains Mono', monospace;
+    background: #0f0f0f;
+    color: #E6E5EA;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+  }
+  
+  .password-generator-container {
+    background: #1c1c1c;
+    padding: 0.3rem 1.1rem;
+    border-radius: 0.3rem;
+    width: 33.75rem;
+    height: 5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom:1.43rem;
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: gray;
+  }
+  
+.character-length {
+    color: #E6E5EA;
+}
+#length-value{
+    color: #A4FFAF;
+    font-weight: bold;
+    font-size: 32px;
+
+}
+  
+#password{
+  color: gray;
+  font-size: 32px;
+    font-weight: bold;
+  }
+  
+
+  
+  .copy-btn  {
+    font-size: 25px;
+    color: #A4FFAF;
+    margin-left: .5em;
+    cursor: pointer;
+
+  }
+
+  .copy-btn:hover {
+    color: #fff;
+  }
+  
+  .controls {
+    background: #1c1c1c;
+    width: 33.75rem;
+    padding: 3rem 1.3rem;
+    border-radius: 0.3rem;
+    height: 28rem;
+
+
+  }
+  
+  .control {
+    display: flex;
+    width: 100%;
+    height: 3rem;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+ 
+
+  #length {
+    -webkit-appearance: none; 
+    appearance: none;
+    width: 100%;  
+    height: 10px; 
+    background: linear-gradient(to right, #A4FFAF 0%, #A4FFAF 50%, #18171F 50%, #18171F 100%);
+    border-radius: 5px;
+    outline: none;
+    transition: background 0.3s ease;
+    ;
+} 
+
+
+
+#length::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 8px;
+    background: #0f0f0f; 
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#length::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 22px;
+    height: 22px;
+    background: #E6E5EA; 
+    border-radius: 50%;
+    cursor: pointer;
+    transform: translateY(-7px);
+}
+
+/* To style the filled range */
+#length::-webkit-slider-runnable-track {
+    height: 8px;
+    border-radius: 5px;
+    background: linear-gradient(to right, #A4FFAF 50%, #0f0f0f 50%);
+  }
+
+#length::-moz-range-thumb:hover {
+    background: #18171F;
+    border: 2px solid #A4FFAF ;
+}
+#length::-moz-range-track {
+    background: transparent;
+}
+#length::-webkit-slider-runnable-track {
+    height: 8px;
+    background: transparent;
+    border: none;
+}
+#length::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #E6E5EA;
+    cursor: pointer;
+    border-radius: 50%;
+    border: none;
+}
+
+
+#length::-webkit-slider-thumb:hover {
+    background: #0f0f0f;
+    border: 2px solid #A4FFAF;
+}
+
+
+
+  .checkbox label {
+    display: block;
+    margin-top: 15px;
+    display: flex;
+    width: 315px;
+    height: 23px;
+    align-items: center;
+
+  }
+  
+  .checkbox input {
+    margin-right: 20px;
+    accent-color: #A4FFAF;  
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+  }
+  
+  
+  .strength {
+    width: 476px;
+    height: 72px;
+    background: #18171F;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    margin: 20px ;
+  }
+  
+  .strength-title{
+    color: #817D92;
+    font-size: small;
+  }
+  .strength-value {
+    font-weight: bold;
+    margin-left: 10px;
+  }
+  .strength-level {
+    width: 120px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .level-title{
+    width: 100px;
+    font-size: 13.8px;
+  }
+  .strength-bars {
+width: 45px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px;}
+  
+  .bar {
+width: 7px;
+    height: 24px;
+    border: #E6E5EA solid 1px;
+  }
+  
+ 
+  
+  .bar.not-active {
+    border: #E6E5EA solid 1px;
+
+  }
+  
+  /* Generate button */
+  .generate-btn {
+    width: 30rem;
+    height: 4rem;
+    color: #24232C;
+    padding: 10px;
+    border: none;
+    font-weight: bold;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+    background: #A4FFAF;
+    font-family: JetBrains Mono;
+  }
+  
+  .generate-btn:hover {
+    background: #1c1c1c;
+    border: #A4FFAF solid 1px;
+    color: #A4FFAF;
+  }
+ .generate-btn span{
+    margin-left: 1rem;
+ }
+  
+ footer {
+    width: 100%;
+display: flex;
+    justify-content: center;
+ }
+
+
+ /* Style for the success/failure message */
+#message {
+  font-size: 14px;
+  color: #A4FFAF;
+  margin-top: 10px;
+  display: none; /* Hidden by default */
+}
+
+#message.error {
+  color: red; /* For error messages */
+}
+
+.copyandbtn {
+  display: flex;
+  align-items: center;
+}
+
+
+@media (max-width: 600px) {
+  /* CSS rules for screens 600px or smaller (e.g., mobile devices) */
+.password-generator-container {
+  width: 80%;
+height: 4rem;}
+
+h2{
+margin-top: 100px;}
+
+#password {
+  font-size: 20px;
+}
+.controls{
+  width: 80%;
+
+}
+
+.strength{
+  width: 80%;
+}
+}
